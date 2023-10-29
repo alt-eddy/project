@@ -1,12 +1,13 @@
 const admin_key = "admin123"
 const admin_alt_key = "admin000"
+const db = process.env.DATABASE_URL || 'postgres://hgljbhsu:oZ_jvYruLn-LdhRzSLSQsUEBooh6WF-w@peanut.db.elephantsql.com/hgljbhsu';
 const SESSION_KEY = process.env.SESSION_KEY || 'RD1H233B4DW038HXS21CXGXBJX1N1IP4232N2WBX2G3C4DXW4C';
 const KNEX_CONFIG = 
 (process.env.environment === 'production')?
 {  
     client: 'pg',
     connection: {
-        connectionString: process.env.DATABASE_URL,
+        connectionString: db,
         ssl: { rejectUnauthorized: false }
     }
 }
@@ -25,7 +26,7 @@ const KNEX_CONFIG =
 {  
     client: 'pg',
     connection: {
-        connectionString: process.env.DATABASE_URL,
+        connectionString: db,
         ssl: { rejectUnauthorized: false }
     }
 };
